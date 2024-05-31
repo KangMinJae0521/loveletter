@@ -44,7 +44,7 @@ def main():
     page_bg_img = '''
     <style>
     body {
-    background-image: url(https://wrtn-image-user-output.s3.ap-northeast-2.amazonaws.com/662d7477e59b893988fa6176/ac878e65-8d52-431c-818a-ca77fdc401e0.png
+    background-image: url(https://wrtn-image-user-output.s3.ap-northeast-2.amazonaws.com/662d7477e59b893988fa6176/ac878e65-8d52-431c-818a-ca77fdc401e0.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
