@@ -29,7 +29,7 @@ class LoveAdviceApp:
             self.show_advice()
 
         # 초기화 체크박스
-        if st.checkbox("초기화"):
+        if st.button("초기화"):
             self.user_info = {}
             st.experimental_rerun()
 
@@ -42,6 +42,10 @@ def main():
     st.write('나: "누가 연재 조언 안해주나...?"')
     st.write('슝슝이: "안녕? 난 슝슝이야!"')
     st.write('나: "내가 너의 모솔 탈출을 도와줄게!"')
+
+    if st.button("연애 조언 받기"):
+        app = LoveAdviceApp()
+        app.run()
 
     # 연애 조언 앱 실행
     app = LoveAdviceApp()
