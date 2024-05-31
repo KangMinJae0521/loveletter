@@ -18,8 +18,6 @@ class LoveAdviceApp:
         st.info(advice)
 
     def run(self):
-        
-
         if "advice_requested" not in st.session_state:
             st.session_state.advice_requested = False
 
@@ -39,8 +37,7 @@ class LoveAdviceApp:
                 st.session_state.advice_requested = False
                 st.experimental_rerun()
 
-def main():
-     def add_bg_from_local():
+def add_bg_from_local():
     st.markdown(
         f"""
         <style>
@@ -53,7 +50,8 @@ def main():
         unsafe_allow_html=True
     )
 
-add_bg_from_local()
+def main():
+    add_bg_from_local()
     
     # 앱의 타이틀 설정
     st.title("사랑을 찾아 슝슝~♥")
