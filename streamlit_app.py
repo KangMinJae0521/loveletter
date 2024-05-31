@@ -12,7 +12,7 @@ def main():
 
     # '연애 조언 받기' 버튼 생성
     if st.button("연애 조언 받기"):
-        class LoveAdviceApp:
+    class LoveAdviceApp:
     def __init__(self):
         self.user_info = {}
         self.options = {
