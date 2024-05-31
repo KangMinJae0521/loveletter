@@ -63,7 +63,7 @@ def add_bg_from_local():
             background-image: url("https://cdn.banggooso.com/assets/images/uploadImg/1596642366(M).jpg");
             background-size: 50%;
             background-position: center top;
-            background-repeat: no-repeat;
+          
         }}
         </style>
         """,
