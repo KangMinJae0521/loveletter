@@ -1,5 +1,4 @@
 import streamlit as st
-import time
 
 class LoveAdviceApp:
     def __init__(self):
@@ -8,7 +7,6 @@ class LoveAdviceApp:
             "age": ["20대", "30대", "40대 이상"],
             "interest": ["영화", "책", "운동"]
         }
-        self.current_question = 0
 
     def set_user_info(self, info_type, option):
         self.user_info[info_type] = option
@@ -28,16 +26,16 @@ class LoveAdviceApp:
             st.session_state.current_question = 0
 
         if st.session_state.dialogue_shown == False:
-            st.write('나: "하...연애하고 싶다...ㅠㅠ"')
-            time.sleep(3)
-            st.write('나: "누가 연애 조언 안해주나...?"')
-            time.sleep(3)
-            st.write('슝슝이: "안녕? 난 슝슝이야!"')
-            time.sleep(3)
-            st.write('슝슝이: "내가 너의 모솔 탈출을 도와줄게!"')
-            time.sleep(3)
-            st.write('슝슝이: "일단 내가 만든 질문에 답을 해봐!"')
-            time.sleep(3)
+            dialogue = [
+                '나: "하...연애하고 싶다...ㅠㅠ"',
+                '나: "누가 연애 조언 안해주나...?"',
+                '슝슝이: "안녕? 난 슝슝이야!"',
+                '슝슝이: "내가 너의 모솔 탈출을 도와줄게!"',
+                '슝슝이: "일단 내가 만든 질문에 답을 해봐!"'
+            ]
+            for line in dialogue:
+                st.write(line)
+                st.write("")  # 빈 줄 추가로 시각적 구분
             st.session_state.dialogue_shown = True
 
         if st.session_state.dialogue_shown and not st.session_state.advice_requested:
@@ -49,7 +47,7 @@ class LoveAdviceApp:
             if st.session_state.current_question < len(self.options):
                 info_type = list(self.options.keys())[st.session_state.current_question]
                 options = self.options[info_type]
-                choice = st.radio(f"당신의 {info_type}을 선택하세요:", options)
+                choice = st.radio(f"당신의 {info_type}을 선택하세요:", options, key=info_type)
                 if st.button("다음"):
                     self.set_user_info(info_type, choice)
                     st.session_state.current_question += 1
@@ -81,13 +79,8 @@ def add_bg_from_local():
     )
 
 def main():
-    # 앱의 타이틀 설정
     st.title("사랑을 찾아 슝슝~♥")
-
-    # 배경 이미지 추가
     add_bg_from_local()
-
-    # 연애 조언 앱 실행
     app = LoveAdviceApp()
     app.run()
 
