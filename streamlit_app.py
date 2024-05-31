@@ -44,7 +44,7 @@ def main():
     page_bg_img = '''
     <style>
     body {
-    background-image: url(https://cdn.pixabay.com/photo/2021/09/06/16/41/couple-6602046_1280.jpg);
+    background-image: url("https://cdn.pixabay.com/photo/2021/09/06/16/41/couple-6602046_1280.jpg");
     background-size: cover;
     }
     </style>
@@ -52,7 +52,7 @@ def main():
     st.markdown(page_bg_img, unsafe_allow_html=True)
     
     # 앱의 타이틀 설정
-    st.title("연애 조언 앱")
+    st.title("사랑을 찾아 슝슝~♥")
 
     # 사용자의 말을 표시
     st.write('나: "하...연애하고 싶다."')
