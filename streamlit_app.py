@@ -1,6 +1,18 @@
 import streamlit as st
 
-class LoveAdviceApp:
+def main():
+    # 앱의 타이틀 설정
+    st.title("연애 조언 앱")
+
+    # 사용자의 말을 표시
+    st.write('나: "하...연애하고 싶다."')
+    st.write('나: "누가 연재 조언 안해주나...?"')
+    st.write('슝슝이: "안녕? 난 슝슝이야!"')
+    st.write('나: "내가 너의 모솔 탈출을 도와줄게!"')
+
+    # '연애 조언 받기' 버튼 생성
+    if st.button("연애 조언 받기"):
+        class LoveAdviceApp:
     def __init__(self):
         self.user_info = {}
         self.options = {
@@ -31,10 +43,15 @@ class LoveAdviceApp:
             self.user_info = {}
             st.experimental_rerun()
 
-if __name__ == "__main__":
-    app = LoveAdviceApp()
+
     app.run()
     root.mainloop()
 
+        
+
+# 스트림릿 앱을 실행
 if __name__ == "__main__":
     main()
+
+
+
