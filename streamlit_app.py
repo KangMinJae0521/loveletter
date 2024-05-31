@@ -44,7 +44,7 @@ def main():
     page_bg_img = '''
     <style>
     body {
-    background-image: url("https://cdn.pixabay.com/photo/2021/09/06/16/41/couple-6602046_1280.jpg");
+    background-image: url("https://cdn.pixabay.com/photo/2016/10/18/19/01/love-1751071_1280.jpg");
     background-size: cover;
     }
     </style>
