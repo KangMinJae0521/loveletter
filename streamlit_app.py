@@ -43,15 +43,9 @@ def main():
                     self.user_info = {}
                     st.experimental_rerun()
 
-
-    app.run()
-    root.mainloop()
-
-        
-
-# 스트림릿 앱을 실행
 if __name__ == "__main__":
-    main()
+    app = LoveAdviceApp()
+    app.run()
 
 
 
