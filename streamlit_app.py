@@ -40,18 +40,20 @@ class LoveAdviceApp:
                 st.experimental_rerun()
 
 def main():
-     # 배경 이미지 설정
-    page_bg_img = '''
-    <style>
-    body {
-    background-image: url(https://wrtn-image-user-output.s3.ap-northeast-2.amazonaws.com/662d7477e59b893988fa6176/ac878e65-8d52-431c-818a-ca77fdc401e0.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    }
-    </style>
-    '''
-    st.markdown(page_bg_img, unsafe_allow_html=True)
+     def add_bg_from_local():
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url("https://wrtn-image-user-output.s3.ap-northeast-2.amazonaws.com/662d7477e59b893988fa6176/ac878e65-8d52-431c-818a-ca77fdc401e0.png");
+            background-size: cover;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+add_bg_from_local()
     
     # 앱의 타이틀 설정
     st.title("사랑을 찾아 슝슝~♥")
