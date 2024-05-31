@@ -44,8 +44,10 @@ def main():
     page_bg_img = '''
     <style>
     body {
-    background-image: url("https://images.unsplash.com/reserve/165aTVpzTXGMXu1azUdy_IMG_8468.JPG?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D");
+    background-image: url("https://wrtn-image-user-output.s3.ap-northeast-2.amazonaws.com/662d7477e59b893988fa6176/ac878e65-8d52-431c-818a-ca77fdc401e0.png");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     }
     </style>
     '''
