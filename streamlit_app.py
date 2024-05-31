@@ -60,8 +60,9 @@ def add_bg_from_local():
         f"""
         <style>
         .stApp {{
-            background-image: url("https://wrtn-image-user-output.s3.ap-northeast-2.amazonaws.com/662d7477e59b893988fa6176/ac878e65-8d52-431c-818a-ca77fdc401e0.png");
-            background-size: cover;
+            background-image: url("https://cdn.banggooso.com/assets/images/uploadImg/1596642366(M).jpg");
+            background-size: 50%;
+            background-position: center top;
         }}
         </style>
         """,
