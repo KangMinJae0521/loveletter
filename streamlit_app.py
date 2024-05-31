@@ -51,39 +51,6 @@ def add_bg_from_local():
         unsafe_allow_html=True
     )
 
-def add_typing_effect():
-    st.markdown(
-        f"""
-        <style>
-        .typing {{
-            font-size: 20px;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: .15em solid orange;
-            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-        }}
-
-        @keyframes typing {{
-            from {{ width: 0 }}
-            to {{ width: 100% }}
-        }}
-
-        @keyframes blink-caret {{
-            from, to {{ border-color: transparent }}
-            50% {{ border-color: orange }}
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-    st.markdown('<div class="typing" style="animation-delay: 0s;">나: "하...연애하고 싶다."</div>', unsafe_allow_html=True)
-    time.sleep(4)  # 첫 번째 대사가 끝난 후 지연 시간 추가
-    st.markdown('<div class="typing" style="animation-delay: 4s;">나: "누가 연재 조언 안해주나...?"</div>', unsafe_allow_html=True)
-    time.sleep(4)  # 두 번째 대사가 끝난 후 지연 시간 추가
-    st.markdown('<div class="typing" style="animation-delay: 8s;">슝슝이: "안녕? 난 슝슝이야!"</div>', unsafe_allow_html=True)
-    time.sleep(4)  # 세 번째 대사가 끝난 후 지연 시간 추가
-    st.markdown('<div class="typing" style="animation-delay: 12s;">슝슝이: "내가 너의 모솔 탈출을 도와줄게!"</div>', unsafe_allow_html=True)
-
 def main():
     add_bg_from_local()
     
@@ -91,7 +58,16 @@ def main():
     st.title("사랑을 찾아 슝슝~♥")
 
     # 사용자의 말을 표시
-    add_typing_effect()
+    st.write('나: "하...연애하고 싶다...ㅠㅠ"')
+    time.sleep(3)
+    st.write('나: "누가 연애 조언 안해주나...?"')
+    time.sleep(3)
+    st.write('슝슝이: "안녕? 난 슝슝이야!"')
+    time.sleep(3)
+    st.write('슝슝이: "내가 너의 모솔 탈출을 도와줄게!"')
+    time.sleep(3)
+    st.write('슝슝이: "일단 내가 만든 질문에 답을 해봐!"')
+    time.sleep(3)
 
     # 연애 조언 앱 실행
     app = LoveAdviceApp()
