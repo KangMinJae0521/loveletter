@@ -23,36 +23,44 @@ class LoveAdviceApp:
             st.session_state.advice_requested = False
         if "dialogue_shown" not in st.session_state:
             st.session_state.dialogue_shown = False
+        if "current_question" not in st.session_state:
+            st.session_state.current_question = 0
 
         if st.session_state.dialogue_shown == False:
-            # 대사 표시
-            st.write('나: "하...연애하고 싶다...ㅠㅠ"')
+            st.markdown('<div style="text-align: center;">나: "하...연애하고 싶다...ㅠㅠ"</div>', unsafe_allow_html=True)
             time.sleep(3)
-            st.write('나: "누가 연애 조언 안해주나...?"')
+            st.markdown('<div style="text-align: center;">나: "누가 연애 조언 안해주나...?"</div>', unsafe_allow_html=True)
             time.sleep(3)
-            st.write('슝슝이: "안녕? 난 슝슝이야!"')
+            st.markdown('<div style="text-align: center;">슝슝이: "안녕? 난 슝슝이야!"</div>', unsafe_allow_html=True)
             time.sleep(3)
-            st.write('슝슝이: "내가 너의 모솔 탈출을 도와줄게!"')
+            st.markdown('<div style="text-align: center;">슝슝이: "내가 너의 모솔 탈출을 도와줄게!"</div>', unsafe_allow_html=True)
             time.sleep(3)
-            st.write('슝슝이: "일단 내가 만든 질문에 답을 해봐!"')
+            st.markdown('<div style="text-align: center;">슝슝이: "일단 내가 만든 질문에 답을 해봐!"</div>', unsafe_allow_html=True)
             time.sleep(3)
             st.session_state.dialogue_shown = True
 
-        if st.button("연애 조언 받기"):
-            st.session_state.advice_requested = True
+        if st.session_state.dialogue_shown and not st.session_state.advice_requested:
+            if st.button("연애 조언 받기"):
+                st.session_state.advice_requested = True
+                st.experimental_rerun()
 
         if st.session_state.advice_requested:
-            for info_type, options in self.options.items():
+            if st.session_state.current_question < len(self.options):
+                info_type = list(self.options.keys())[st.session_state.current_question]
+                options = self.options[info_type]
                 choice = st.radio(f"당신의 {info_type}을 선택하세요:", options)
-                self.set_user_info(info_type, choice)
-
-            if st.button("조언 받기"):
+                if st.button("다음"):
+                    self.set_user_info(info_type, choice)
+                    st.session_state.current_question += 1
+                    st.experimental_rerun()
+            else:
                 self.show_advice()
 
             if st.button("초기화"):
                 self.user_info = {}
                 st.session_state.advice_requested = False
                 st.session_state.dialogue_shown = False
+                st.session_state.current_question = 0
                 st.experimental_rerun()
 
 def add_bg_from_local():
@@ -63,7 +71,14 @@ def add_bg_from_local():
             background-image: url("https://cdn.banggooso.com/assets/images/uploadImg/1596642366(M).jpg");
             background-size: 50%;
             background-position: center top;
-          
+            background-repeat: no-repeat;
+            background-color: white;
+        }}
+        .center {{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }}
         </style>
         """,
@@ -71,12 +86,13 @@ def add_bg_from_local():
     )
 
 def main():
+    # Add background image
     add_bg_from_local()
-    
-    # 앱의 타이틀 설정
-    st.title("사랑을 찾아 슝슝~♥")
 
-    # 연애 조언 앱 실행
+    # Set the app title
+    st.markdown('<h1 style="text-align: center;">사랑을 찾아 슝슝~♥</h1>', unsafe_allow_html=True)
+
+    # Run the love advice app
     app = LoveAdviceApp()
     app.run()
 
