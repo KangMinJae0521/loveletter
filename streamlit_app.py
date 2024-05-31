@@ -40,6 +40,17 @@ class LoveAdviceApp:
                 st.experimental_rerun()
 
 def main():
+     # 배경 이미지 설정
+    page_bg_img = '''
+    <style>
+    body {
+    background-image: url("https://cdn.pixabay.com/photo/2021/09/06/16/41/couple-6602046_1280.jpg");
+    background-size: cover;
+    }
+    </style>
+    '''
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+    
     # 앱의 타이틀 설정
     st.title("연애 조언 앱")
 
