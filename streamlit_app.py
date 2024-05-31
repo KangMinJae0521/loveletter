@@ -13,11 +13,11 @@ def main():
     # '연애 조언 받기' 버튼 생성
     if st.button("연애 조언 받기"):
         class LoveAdviceApp:
-        def __init__(self):
-            self.user_info = {}
-            self.options = {
-                "age": ["20대", "30대", "40대 이상"],
-                "interest": ["영화", "책", "운동"]
+            def __init__(self):
+                self.user_info = {}
+                self.options = {
+                    "age": ["20대", "30대", "40대 이상"],
+                    "interest": ["영화", "책", "운동"]
         }
     
         def set_user_info(self, info_type, option):
