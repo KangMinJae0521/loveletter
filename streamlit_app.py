@@ -8,6 +8,7 @@ class LoveAdviceApp:
             "age": ["20대", "30대", "40대 이상"],
             "interest": ["영화", "책", "운동"]
         }
+        self.current_question = 0
 
     def set_user_info(self, info_type, option):
         self.user_info[info_type] = option
@@ -27,15 +28,15 @@ class LoveAdviceApp:
             st.session_state.current_question = 0
 
         if st.session_state.dialogue_shown == False:
-            st.markdown('<div style="text-align: center;">나: "하...연애하고 싶다...ㅠㅠ"</div>', unsafe_allow_html=True)
+            st.write('나: "하...연애하고 싶다...ㅠㅠ"')
             time.sleep(3)
-            st.markdown('<div style="text-align: center;">나: "누가 연애 조언 안해주나...?"</div>', unsafe_allow_html=True)
+            st.write('나: "누가 연애 조언 안해주나...?"')
             time.sleep(3)
-            st.markdown('<div style="text-align: center;">슝슝이: "안녕? 난 슝슝이야!"</div>', unsafe_allow_html=True)
+            st.write('슝슝이: "안녕? 난 슝슝이야!"')
             time.sleep(3)
-            st.markdown('<div style="text-align: center;">슝슝이: "내가 너의 모솔 탈출을 도와줄게!"</div>', unsafe_allow_html=True)
+            st.write('슝슝이: "내가 너의 모솔 탈출을 도와줄게!"')
             time.sleep(3)
-            st.markdown('<div style="text-align: center;">슝슝이: "일단 내가 만든 질문에 답을 해봐!"</div>', unsafe_allow_html=True)
+            st.write('슝슝이: "일단 내가 만든 질문에 답을 해봐!"')
             time.sleep(3)
             st.session_state.dialogue_shown = True
 
@@ -74,25 +75,19 @@ def add_bg_from_local():
             background-repeat: no-repeat;
             background-color: white;
         }}
-        .center {{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }}
         </style>
         """,
         unsafe_allow_html=True
     )
 
 def main():
-    # Add background image
+    # 앱의 타이틀 설정
+    st.title("사랑을 찾아 슝슝~♥")
+
+    # 배경 이미지 추가
     add_bg_from_local()
 
-    # Set the app title
-    st.markdown('<h1 style="text-align: center;">사랑을 찾아 슝슝~♥</h1>', unsafe_allow_html=True)
-
-    # Run the love advice app
+    # 연애 조언 앱 실행
     app = LoveAdviceApp()
     app.run()
 
